@@ -63,11 +63,14 @@
 * 複雜的程式碼
 
 
-# 重構成為範式
+## 重構成為範式
 
-## 創建(Creation)
+### 創建(Creation)
 
-### 
+* [以創建函式替代建構式(Replace Constructors With Creation Methods)](https://github.com/BryanYu/RefactoringToPatternsPractice/tree/master/RefactoringToPatternsPractice/Creation/ReplaceConstructorsWithCreationMethods)
+* [將創建知識移至Factory(Move Creation Knowledge To Factory)](https://github.com/BryanYu/RefactoringToPatternsPractice/tree/master/RefactoringToPatternsPractice/Creation/MoveCreationKnowledgeToFactory))
+
+
 
 
 
