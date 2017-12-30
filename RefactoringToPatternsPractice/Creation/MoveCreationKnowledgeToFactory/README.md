@@ -15,7 +15,6 @@
 
 * 可以統合創建邏輯和具現(instantiation)/組態偏好(configuration)
 * 將客戶端和創建邏輯解除耦合
-*
 
 ## 缺點：
 * 比直接具現(instantiation)設計更複雜 
