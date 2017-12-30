@@ -8,6 +8,14 @@ namespace RefactoringToPatternsPractice.Creation.MoveCreationKnowledgeToFactory
 {
     public class MoveCreationKnowledgeToFactory
     {
+        public void Sample()
+        {
+            NodeFactory factory = new NodeFactory();
+            factory.ShouldDecodeStringNodes = true;
+            var parser = new Parser();
+            parser.NodeFactory = factory;
+        }
+
         public class StringParser
         {
             public Node Find()
@@ -15,16 +23,52 @@ namespace RefactoringToPatternsPractice.Creation.MoveCreationKnowledgeToFactory
                 var parser = new Parser();
                 var textBuffer = new Object();
                 var textBegin = new Object();
-                var textEnd = new object();
-                return StringNode.CreateStringNode(textBuffer, textBegin, textEnd, parser.ShouldDecodeNodes());
+                var textEnd = new Object();
+                var nodeFactory = new NodeFactory();
+                return parser.NodeFactory.CreateStringNode(textBuffer, textBegin, textEnd);
             }
         }
 
         public class Parser
         {
-            public bool ShouldDecodeNodes()
+            private NodeFactory _nodeFactory = new NodeFactory();
+
+            public NodeFactory NodeFactory
             {
-                return true;
+                get
+                {
+                    return this._nodeFactory;
+                }
+                set
+                {
+                    this._nodeFactory = value;
+                }
+            }
+        }
+
+        public class NodeFactory
+        {
+            private bool _shouldDecodeStringNodes;
+
+            public bool ShouldDecodeStringNodes
+            {
+                get
+                {
+                    return this._shouldDecodeStringNodes;
+                }
+                set
+                {
+                    this._shouldDecodeStringNodes = value;
+                }
+            }
+
+            public Node CreateStringNode(object textBuffer, object textBegin, object textEnd)
+            {
+                if (this._shouldDecodeStringNodes)
+                {
+                    return new DecodingStringNode(new StringNode(textBuffer, textBegin, textEnd));
+                }
+                return new StringNode(textBuffer, textBegin, textEnd);
             }
         }
 
@@ -33,22 +77,12 @@ namespace RefactoringToPatternsPractice.Creation.MoveCreationKnowledgeToFactory
             public StringNode(object textBuffer, object textBegin, object textEnd)
             {
             }
+        }
 
-            public static Node CreateStringNode(object textBuffer,
-                                                object textBegin,
-                                                object textEnd,
-                                                bool shouldDecodeNodes)
+        public class DecodingStringNode : Node
+        {
+            public DecodingStringNode(StringNode node)
             {
-                if (shouldDecodeNodes)
-                {
-                    return DecodingStringNode(new StringNode(textBuffer, textBegin, textEnd));
-                }
-                return new StringNode(textBuffer, textBegin, textEnd);
-            }
-
-            private static Node DecodingStringNode(StringNode stringNode)
-            {
-                throw new NotImplementedException();
             }
         }
 
