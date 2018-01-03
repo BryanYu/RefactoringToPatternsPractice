@@ -6,7 +6,34 @@ using System.Threading.Tasks;
 
 namespace RefactoringToPatternsPractice.Creation.EncapsulateClassesWithFactory
 {
-    class EncapsulateClassesWithFactory
+    public class EncapsulateClassesWithFactory
     {
+        public abstract class AttributeDescriptor
+        {
+            protected AttributeDescriptor()
+            {
+            }
+        }
+
+        public class BooleanDescriptor : AttributeDescriptor
+        {
+            public BooleanDescriptor() : base()
+            {
+            }
+        }
+
+        public class DefaultDescriptor : AttributeDescriptor
+        {
+            public DefaultDescriptor() : base()
+            {
+            }
+        }
+
+        public class ReferenceDescriptor : AttributeDescriptor
+        {
+            public ReferenceDescriptor() : base()
+            {
+            }
+        }
     }
 }
