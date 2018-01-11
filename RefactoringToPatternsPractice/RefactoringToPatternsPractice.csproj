@@ -41,12 +41,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Creation\EncapsulateClassesWithFactory\EncapsulateClassesWithFactory.cs" />
+    <Compile Include="Creation\IntroducePolymorphicCreationWithFactoryMethod\IntroducePolymorphicCreationWithFactoryMethod.cs" />
     <Compile Include="Creation\MoveCreationKnowledgeToFactory\MoveCreationKnowledgeToFactory.cs" />
     <Compile Include="Creation\ReplaceConstructorsWithCreationMethods\ReplaceConstructorsWithCreationMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Creation\EncapsulateClassesWithFactory\README.md" />
+    <None Include="Creation\IntroducePolymorphicCreationWithFactoryMethod\README.md" />
     <None Include="Creation\MoveCreationKnowledgeToFactory\README.md" />
     <None Include="Creation\ReplaceConstructorsWithCreationMethods\README.md" />
   </ItemGroup>
