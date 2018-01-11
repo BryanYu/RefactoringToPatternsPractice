@@ -23,7 +23,7 @@ namespace RefactoringToPatternsPractice.Creation.IntroducePolymorphicCreationWit
                                     "</order>" +
                                     "<customer>" +
                                     "<customer>";
-                this._builder = new DOMBuilder("orders");
+                this._builder = CreateBuilder("orders");
                 _builder.AddBelow("order");
                 try
                 {
@@ -33,6 +33,11 @@ namespace RefactoringToPatternsPractice.Creation.IntroducePolymorphicCreationWit
                 catch (Exception e)
                 {
                 }
+            }
+
+            private OutputBuilder CreateBuilder(string rootName)
+            {
+                return new DOMBuilder(rootName);
             }
         }
 
